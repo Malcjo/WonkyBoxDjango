@@ -1,0 +1,72 @@
+#######
+#Farmstead calls
+#######
+
+/GetAllFarms
+    returns data for ALL Farmsteads
+    can be refined by using 'filter' 
+    (name, email, region, location, produces, description, farmers story)
+    eg: /GetAllFarms
+    eg: /GetAllFarms?filter=name
+
+/GetSingleFarm
+    returns all data on a single farm
+    must use name as query
+    eg: /GetSingleFarm?name=Hastings+Orchard
+
+/GetFarmsteadImageUrl
+    returns url of image retaed to a produce
+    must be determined with name query
+    eg: /GetFarmsteadImageUrl?name=Petes+Delicious+Fruit+Market
+
+
+#######
+#Produce calls
+#######
+
+/GetAllProduce
+    returns data for ALL Produce items
+    can be refined by using 'filter' 
+    (name, category, description, seasonal information, storage, additional information)
+    eg: /GetAllProduce
+    eg: /GetAllProduce?filter=description
+
+/GetSingleProduce
+    returns all data on a single produce item
+    must use name as query
+    eg: /GetSingleProduce?name=Carrot
+
+/GetProduceFromCategory
+    returns all produce from a selected category 
+    produce must be determined with category query
+    (Vegetables, Fruits, Other) caps are important in this case.
+    eg: /GetProduceFromCategory?category=Vegetables
+
+/GetProduceImageUrl
+    returns url of image retaed to a produce
+    must be determined with name query
+    eg: /GetProduceImageUrl?name=Carrot
+
+#######
+#Weekly box calls
+#######
+
+/GetWeeklyBox
+    returns a json containing date of the box returned + Produce items/suppliers for the week.
+    query must supply a 'day' and must supply a 'region' 
+    (Monday - Sunday)
+    (Auckland, Northland, Bay of Plenty, Waikato, Taranaki, Hawkes Bay, Gisborne, Manawatu-Wanganui, Wellington)
+    eg: /GetWeeklyBox?day=Friday&region=Wellington
+    note:
+        will return null if no matches
+
+/GetBoxesOnDate
+    will return all weekly boxes with a given date
+    query must supply a date in yyyy-mm-dd
+    eg: /GetBoxesOnDate?date=2022-02-01
+
+/GetBoxesBetweenDates
+    returns all weekly boxes between two seperate dates 
+    must include 'startdate' and 'enddate' queries in yyyy-mm-dd format
+    eg: /GetBoxesBetweenDates?startdate=2022-02-01&enddate=2022-03-01
+    
